@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELENIUM PROGRAMS</title>
+</head>
+<body>
+    <p>PROGRAM 1 : Develop a test to Open a Firefox browser using Selenium WebDriver<br>
+        SOURCE CODE:<br>
+        package aiml;<br>
+        import org.openqa.selenium.WebDriver;<br>
+        import org.openqa.selenium.firefox.FirefoxDriver;<br>
+        public class prg1 {<br>
+        public static void main(String[] args) {<br>
+        // TODO Auto-generated method stub<br>
+        System.setProperty("webdriver.gecko.driver","/home/user/Downloads/selenium/geckodriver");<br>
+        WebDriver driver=new FirefoxDriver();<br>
+        driver.get("https://www.google.com");<br>
+        }<br>
+        }<br>
+        <br>
+PROGRAM 2 : Test the case To Print a Message to display that the website is opened successfully wait for 5 Seconds and Close the Browser<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.JavascriptExecutor;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg2 {<br>
+public static void main(String[] args)throws InterruptedException {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/
+chromedriver");<br>
+String expectedtitle="Google";<br>
+String actualtitle="";<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.navigate().to("http://www.google.com");<br>
+driver.manage().window().maximize();<br>
+JavascriptExecutor js=(JavascriptExecutor)driver;<br>
+js.executeScript("scrollBy(0,5000)");<br>
+actualtitle=driver.getTitle();<br>
+if (actualtitle.contentEquals(expectedtitle));<br>
+{<br>
+System.out.println("Website opened successfully");<br>
+}<br>
+Thread.sleep(5000);<br>
+driver.quit();<br>
+}<br>
+}<br>
+<br>
+PROGRAM 3 : Develop Tests to Upload a File with Send Keys Method by Using Web Driver<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.WebElement;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg3 {<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+String baseUrl=("http://demo.guru99.com/test/upload");<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.get(baseUrl);<br>
+WebElement uploadElement=driver.findElement(By.id("uploadfile_0"));<br>
+uploadElement.sendKeys("/home/user/Documents/sample.html");<br>
+driver.findElement(By.id("terms")).click();<br>
+driver.findElement(By.name("send")).click();<br>
+}<br>
+}<br>
+<br>
+PROGRAM 4 : Automate to Access a Link in Selenium Web driverby link Text () and partial Link Text ()<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.WebElement;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg4 {<br>
+public static void main(String[] args)throws InterruptedException {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+String baseUrl="https://www.google.com/";<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.get(baseUrl);<br>
+WebElement n=driver.findElement(By.linkText("Gmail"));<br>
+n.click();<br>
+System.out.println("Current page title:"+driver.getTitle());<br>
+WebElement m=driver.findElement(By.partialLinkText("Sign"));<br>
+Thread.sleep(5000);<br>
+driver.quit();<br>
+}<br>
+}<br>
+<br>
+PROGRAM 5 : To Locate a link by Selecting multiple items in a dropdown<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+import org.openqa.selenium.support.ui.Select;<br>
+public class prg5 {<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver" );<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.get("https://demo.guru99.com/test/newtours/register.php");<br>
+Select country=new Select(driver.findElement(By.name("country")));<br>
+country.selectByVisibleText("INDIA");<br>
+}<br>
+}<br>
+<br>
+PROGRAM 6 : Develop a test to Locate a frame using Tag Name<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg6 {<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver" );<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.get("https://demo.guru99.com/test/guru99home/");<br>
+driver.manage().window().maximize();<br>
+driver.switchTo().frame("a077aa5e");<br>
+System.out.println("********We are switch to the iframe*******");<br>
+driver.findElement(By.xpath("html/body/a/img")).click();<br>
+System.out.println("******We are done********");<br>
+}<br>
+}<br>
+<br>
+PROGRAM 7 : Test the case to Submit a login form using Web driver<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.Keys;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.WebElement;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg7 {<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.manage().window().maximize();<br>
+driver.get("https://github.com/login");<br>
+driver.findElement(By.name("login")).sendKeys("aiml2023st@gmail.com");<br>
+driver.findElement(By.id("password")).sendKeys("Aiml$2023");<br>
+driver.findElement(By.name("commit")).click();<br>
+}<br>
+}<br>
+<br>
+PROGRAM 8 : Develop a test to Synchronize with an implicit wait<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import java.time.Duration;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg8 {<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+WebDriver driver=new ChromeDriver();<br>
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000000));<br>
+String eTitle="Google";<br>
+String aTitle="";<br>
+driver.get("https://www.google.com");<br>
+driver.manage().window().maximize();<br>
+aTitle=driver.getTitle();<br>
+if(aTitle.equals(eTitle))<br>
+{<br>
+System.out.println("Test Passed");<br>
+}<br>
+else<br>
+{<br>
+System.out.println("Test failed");<br>
+}<br>
+driver.close();<br>
+}<br>
+}<br>
+<br>
+PROGRAM 9 : Develop a test to Synchronize with an explicit wait<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import java.time.Duration;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+import org.openqa.selenium.support.ui.ExpectedConditions;<br>
+import org.openqa.selenium.support.ui.WebDriverWait;<br>
+public class prg9 {<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+WebDriver driver=new ChromeDriver();<br>
+WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(50));<br>
+String eTitle="Google";<br>
+String aTitle="";<br>
+driver.get("https://www.google.com");<br>
+driver.manage().window().maximize();<br>
+wait.until(ExpectedConditions.titleIs(eTitle));<br>
+if(aTitle.equals(eTitle))<br>
+{<br>
+System.out.println("Test Passed");<br>
+}<br>
+else<br>
+{<br>
+System.out.println("Test failed");<br>
+}<br>
+driver.close();<br>
+}<br>
+}<br>
+<br>
+PROGRAM 10 : Test the case by Identifying and handling a pop-up window by its name<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import java.util.Iterator;<br>
+import java.util.Set;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg 10{<br>
+public static void main(String[] args) {<br>
+// TODO Auto-generated method stub<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+WebDriver driver = new ChromeDriver();<br>
+driver.get("https://demo.guru99.com/popup.php");<br>
+driver.manage().window().maximize();<br>
+driver.findElement(By.xpath("//*[contains(@href,'popup.php')]")).click();<br>
+String MainWindow = driver.getWindowHandle();<br>
+Set&lt;String&gt; s1 = driver.getWindowHandles();<br>
+Iterator&lt;String&gt; i1 = s1.iterator();<br>
+while (i1.hasNext()) {<br>
+String ChildWindow = i1.next();<br>
+if (!MainWindow.equalsIgnoreCase(ChildWindow)) {<br>
+driver.switchTo().window(ChildWindow);<br>
+driver.findElement(By.name("emailid")).sendKeys("abc@gmail.com");<br>
+driver.findElement(By.name("btnLogin")).click();<br>
+driver.close();<br>
+}<br>
+}<br>
+driver.switchTo().window(MainWindow);<br>
+}<br>
+}<br>
+<br>
+PROGRAM 11 : Develop a test plan to use locators with parameters to search for keyword<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.WebElement;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+public class prg11 {<br>
+public static void main(String[] args) {<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+String baseUrl = "https://en.wikipedia.org/wiki/Main_Page";<br>
+WebDriver driver = new ChromeDriver();<br>
+driver.get(baseUrl);<br>
+driver.manage().window().maximize();<br>
+WebElement e = driver.findElement(By.className("mw-headline"));<br>
+System.out.println(e.getText());<br>
+WebElement a = driver.findElement(By.linkText("Create account"));<br>
+a.click();<br>
+WebElement n = driver.findElement(By.id("wpName2"));<br>
+n.sendKeys("Student1234");<br>
+WebElement m = driver.findElement(By.id("wpPassword2"));<br>
+m.sendKeys("JavaScript");<br>
+WebElement l = driver.findElement(By.id("wpRetype"));<br>
+l.sendKeys("JavaScript");<br>
+WebElement j = driver.findElement(By.name("email"));<br>
+j.sendKeys("JavaScript@gmail.com");<br>
+}<br>
+}<br>
+<br>
+PROGRAM 12 : Automate the test case by dynamic XPath in Selenium Using Double Slash<br>
+SOURCE CODE:<br>
+package aiml;<br>
+import org.openqa.selenium.By;<br>
+import org.openqa.selenium.WebDriver;<br>
+import org.openqa.selenium.chrome.ChromeDriver;<br>
+import org.openqa.selenium.interactions.Actions;<br>
+public class prg12 {<br>
+public static void main(String[] args) throws InterruptedException {<br>
+System.setProperty("webdriver.chrome.driver","/home/user/Downloads/selenium/chromedriver");<br>
+WebDriver driver = new ChromeDriver();<br>
+driver.get("https://portal2.passportindia.gov.in/AppOnlineProject/user/RegistrationBaseAction");<br>
+driver.manage().window().maximize();<br>
+Actions actions = new Actions(driver);<br>
+actions.moveToElement(driver.findElement(By.xpath("//*[@id='passoffice']"))).perform();<br>
+Thread.sleep(1000);<br>
+actions.moveToElement(driver.findElement(By.id("passportoffices2"))).click().perform();<br>
+Thread.sleep(1000);<br>
+}<br>
+}<br>
+    </p>
+</body>
+</html>
